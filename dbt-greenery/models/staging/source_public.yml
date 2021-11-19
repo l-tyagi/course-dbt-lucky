@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+
+  - name: source_public # name of the source 
+    schema: public # this is the schema our raw data lives in
+    database: dbt # this is the name of our database
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    freshness:
+      warn_after: {count: 24, period: hour}
+      error_after: {count: 48, period: hour}
+
+    tables:
+      - name: users 
+        loaded_at_field: created_at
+        description: >
+          Source table contains greenery user information 
+
+      - name: addresses
+        description: >
+          Source Dim table contains greenery user addresses information 
+
+      - name: events
+        loaded_at_field: created_at
+        description: >
+          Source table contains greenery events/ web sessions information
+
+      - name: orders
+        loaded_at_field: created_at
+        description: >
+          Source table contains greenery customer order information
+
+      - name: order_items
+        description: >
+          Source table contains greenery order item mapping based on order ids
+
+      - name: products
+        description: >
+          Source table contains greenery product information, price and availablity
+          
+      - name: promos
+        description: >
+          Source table contains greenery promotions information

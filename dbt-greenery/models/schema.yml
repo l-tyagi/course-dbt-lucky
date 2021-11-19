@@ -1,0 +1,97 @@
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_superheroes
+    description: "Demographics about each superhero such as name, hair color, height and weight."
+    columns:
+      - name: name
+        tests:
+          - not_null
+      - name: height
+        tests:
+          - positive_values
+      - name: weight
+        tests:
+          - positive_values
+
+  - name: stg_addresses
+    description: "Model which creates a table which contains greenery users address information"
+    columns:
+      - name: address_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_events
+    description: "Model which creates a table which contains greenery users events/ web sessions information"
+    columns:
+      - name: event_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_order_items
+    description: "Model which creates a table which contains greenery order item mapping based on order ids"
+    columns:
+      - name: order_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: "Model which creates a table which contains greenery customer order information"
+    columns:
+      - name: order_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    description: "Model which creates a table which contains greenery product information, price and availablity"
+    columns:
+      - name: product_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_promos
+    description: "Model which creates a table which contains greenery promotions information"
+    columns:
+      - name: promo_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+
+  - name: stg_users
+    description: "Model which create table greenery users information "
+    columns:
+      - name: user_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
