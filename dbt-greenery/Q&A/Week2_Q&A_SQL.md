@@ -39,7 +39,7 @@ SELECT ROUND(COUNT(DISTINCT Case when TotalOrders >= 2 then user_guid end) * 1.0
 3. Each model in mart based on business unit requirement. e.g. Product working on page and product performance etc
 
 #### Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
-https://8080-harlequin-loon-80mnhiwu.ws-us17.gitpod.io/#!/overview?g_v=1&g_e=mushrooms
+dbt-greenery/Q&A/dbt-dag.png
 
 
 ### We added some more models and transformed some data! Now we need to make sure they’re accurately reflecting the data. Add dbt tests into your dbt project on your existing models from Week 1, and new models from the section above
