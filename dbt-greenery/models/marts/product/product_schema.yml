@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: int_users_events
+    description: "intermediate user & events table with modified column"
+    columns:
+      - name: event_guid
+        description: "The primary key for this table"
+        tests:
+          - not_null
+          - unique
+      - name: user_guid
+        description: "Foreign key"
+        tests:
+          - not_null
+      - name: session_guid
+        tests:
+          - not_null
+
+  - name: fact_page_events
+    description: "Fact Page events table, cotains information on Page view and cart events"
+    columns:
+      - name: session_guid
+        description: "The primary key for this table"
+        tests:
+          - not_null
+          - unique
+      - name: user_guid
+        tests:
+          - not_null
+
+  - name: fact_product_page_views
+    description: "Fact Page events table, cotains information on Page views by product only"
+    columns:
+      - name: session_guid
+        description: "The primary key for this table"
+        tests:
+          - not_null
+          - unique
+      - name: user_guid
+        tests:
+          - not_null

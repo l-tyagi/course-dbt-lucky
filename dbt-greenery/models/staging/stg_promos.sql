@@ -6,7 +6,7 @@
 }}
 
 SELECT id 
-     , promo_id as promo_guid
+     , promo_id 
      , discout as discount
      , status as promos_status
 FROM {{ source('source_public', 'promos') }}
