@@ -40,7 +40,7 @@ SELECT ROUND(COUNT(DISTINCT Case when TotalOrders >= 2 then user_guid end) * 1.0
 
 #### Use the dbt docs to visualize your model DAGs to ensure the model layers make sense
 dbt-greenery/Q&A/dbt-dag.png
-
+https://github.com/l-tyagi/course-dbt-lucky/blob/main/dbt-greenery/Q%26A/dbt-dag.png
 
 ### We added some more models and transformed some data! Now we need to make sure they’re accurately reflecting the data. Add dbt tests into your dbt project on your existing models from Week 1, and new models from the section above
 
