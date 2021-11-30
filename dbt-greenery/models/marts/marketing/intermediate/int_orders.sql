@@ -24,11 +24,11 @@ SELECT od.order_guid
         (DATE_PART('hour' , delivered_at_utc - created_at_utc)) +
         (DATE_PART('minute' , delivered_at_utc - created_at_utc)/60)) as Time_to_delivery_HH
      ,TotalItems
-  FROM dbt_lt_2.stg_orders od 
-  LEFT JOIN dbt_lt_2.stg_promos pr
+  FROM {{ ref('stg_orders')}} od 
+  LEFT JOIN {{ ref('stg_promos')}} pr
     ON od.promo_id = pr.promo_id
   LEFT JOIN ( SELECT order_guid
                     ,SUM(Quantity) as TotalItems
-                FROM dbt_lt_2.stg_order_items
- GROUP BY order_guid) sub
+                FROM {{ ref('stg_order_items')}} 
+               GROUP BY order_guid) sub
    ON od.order_guid = sub.order_guid

@@ -14,6 +14,6 @@ SELECT user_guid
      , address 
      , state
      , country
-  FROM dbt_lt_2.stg_users usr 
+  FROM {{ ref('stg_users')}} usr 
   LEFT JOIN {{ ref('stg_addresses') }} adr
     ON usr.address_guid = adr.address_guid

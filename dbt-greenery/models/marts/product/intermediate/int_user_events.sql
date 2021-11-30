@@ -17,10 +17,10 @@ Select ev.user_guid,
        state,
        country,
        ev.product_guid
-  from  dbt_lt_2.stg_events ev
-  LEFT JOIN dbt_lt_2.stg_products pd
+  from {{ ref('stg_events')}} ev
+  LEFT JOIN {{ ref('stg_products')}} pd
     ON ev.product_guid = pd.product_guid
-  LEFT JOIN dbt_lt_2.dim_users usr
+  LEFT JOIN {{ ref('dim_users')}} usr
     ON ev.user_guid = usr.user_guid
  WHERE ev.created_at_utc is not null
   ORDER BY ev.user_guid,

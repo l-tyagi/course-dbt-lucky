@@ -21,8 +21,8 @@ SELECT us.user_guid,
        COUNT(DISTINCT Case when order_status = 'delivered' then order_guid end) as delivered_orders,
        AVG(Estimate_Time_to_delivery_HH) as AVG_Estimate_Time_to_delivery_HH,
        AVG(Time_to_delivery_HH) as Time_to_delivery_HH
-  FROM dbt_lt_2.dim_users us
-  LEFT JOIN dbt_lt_2.int_orders od
+  FROM {{ ref('dim_users')}} us
+  LEFT JOIN {{ ref('int_orders')}} od
     ON us.user_guid = od.user_guid
  GROUP BY us.user_guid,
           first_name,

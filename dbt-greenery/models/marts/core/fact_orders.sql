@@ -23,7 +23,7 @@ SELECT order_guid
      , time_to_delivery_hh
      , account_age_dd
      , totalitems
-  FROM dbt_lt_2.int_order_promo_add ord
-  LEFT JOIN dbt_lt_2.dim_users usr
+  FROM {{ ref('int_order_promo_add')}} ord
+  LEFT JOIN {{ ref('dim_users')}} usr
     ON ord.user_guid = usr.user_guid
   

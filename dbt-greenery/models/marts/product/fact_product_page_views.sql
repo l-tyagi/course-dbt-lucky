@@ -11,6 +11,6 @@ SELECT date(event_date_utc) as event_date,
        page_product,
        user_guid,
        event_guid
-  FROM dbt_lt_2.int_user_events
+  FROM  {{ ref('int_user_events')}} 
  WHERE event_type = 'page_view'
    AND page_product not in ('Home Page','Search Page','Help Page')
