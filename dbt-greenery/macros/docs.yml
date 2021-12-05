@@ -1,0 +1,14 @@
+version: 2
+
+macros:
+  - name: grant_select_usage
+    description: Apply grants select and usage to a specific role
+    docs:
+      show: true
+    arguments:
+      - name: schemas
+        type: str
+        description: Name of the schema
+      - name: role
+        type: str
+        description: Name of the role

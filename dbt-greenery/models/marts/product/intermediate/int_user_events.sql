@@ -6,9 +6,8 @@
 }}
 Select ev.user_guid, 
        event_guid, 
-       CASE When ev.product_guid like '%browse%' then 'Search Page' 
-            When ev.product_guid = 'https://greenary.com' then 'Home Page' 
-            When ev.product_guid = 'https://greenary.com/help' then 'Help Page' Else product_name end Page_Product, 
+       Page_name, 
+       CASE WHEN ev.product_guid is not null then pd.product_name end Product_name,
        ev.created_at_utc as event_date_utc,
        event_type ,
        session_guid,
@@ -27,5 +26,3 @@ Select ev.user_guid,
            event_guid,
            session_guid,
            ev.created_at_utc
-
-

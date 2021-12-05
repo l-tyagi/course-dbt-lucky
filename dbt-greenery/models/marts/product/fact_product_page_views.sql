@@ -8,9 +8,10 @@
 SELECT date(event_date_utc) as event_date,
        extract(Hour from event_date_utc) as EventHour,
        session_guid,
-       page_product,
+       product_name,
        user_guid,
        event_guid
   FROM  {{ ref('int_user_events')}} 
  WHERE event_type = 'page_view'
-   AND page_product not in ('Home Page','Search Page','Help Page')
+   AND page_name = ('Product Page')
+
