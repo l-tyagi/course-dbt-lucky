@@ -73,7 +73,3 @@ macros:
         description: Name of the role
 
 '''
-
-### After learning about dbt packages, we want to try one out and apply some macros or tests.
-
-Added to the packages.yml
